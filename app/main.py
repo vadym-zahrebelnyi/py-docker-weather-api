@@ -15,17 +15,18 @@ def get_weather() -> None:
     print(f"Performing request to Weather API for city {CITY}...")
 
     try:
-        r = requests.get(
+        response = requests.get(
             BASE_URL,
             params={"key": WEATHERAPI_KEY, "q": CITY}
         )
-        r.raise_for_status()
-        weather_data = r.json()
+        response.raise_for_status()
+        weather_data = response.json()
+
         print(
-            f"{weather_data['location']['tz_id']}",
-            f"{weather_data['location']['localtime']}",
-            f"Weather: {weather_data['current']['temp_c']} Celsius,",
-            f"{weather_data['current']['condition']['text']}"
+            f"{weather_data["location"]["tz_id"]} "
+            f"{weather_data["location"]["localtime"]} "
+            f"Weather: {weather_data["current"]["temp_c"]} Celsius, "
+            f"{weather_data["current"]["condition"]["text"]}"
         )
     except Exception as e:
         print(f"An error occurred: {e}")
