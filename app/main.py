@@ -23,10 +23,10 @@ def get_weather() -> None:
         weather_data = response.json()
 
         print(
-            f"{weather_data["location"]["tz_id"]} "
-            f"{weather_data["location"]["localtime"]} "
-            f"Weather: {weather_data["current"]["temp_c"]} Celsius, "
-            f"{weather_data["current"]["condition"]["text"]}"
+            f'{weather_data["location"]["tz_id"]} '
+            f'{weather_data["location"]["localtime"]} '
+            f'Weather: {weather_data["current"]["temp_c"]} Celsius, '
+            f'{weather_data["current"]["condition"]["text"]}'
         )
     except Exception as e:
         print(f"An error occurred: {e}")
